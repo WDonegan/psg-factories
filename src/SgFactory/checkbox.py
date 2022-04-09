@@ -46,8 +46,9 @@ class Checkbox(GeneratorBase):
             self.METADATA:          (False, None),
         }
 
-    def make(self, key: str, txt: str, param_key: str = None):
+    def make(self, key: str, txt: str, default: bool, param_key: str = None):
         self.__parameters__[self.KEY] = (True, key)
         self.__parameters__[self.TEXT] = (True, txt)
+        self.__parameters__[self.DEFAULT] = (True, default)
         active_params: dict = self.__get_params__(param_key)
         return sg.Checkbox(**active_params)
